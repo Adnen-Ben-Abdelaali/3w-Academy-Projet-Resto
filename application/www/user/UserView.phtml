@@ -1,0 +1,80 @@
+
+<h1> <i class="fas fa-user"></i> Création d'un compte client</h1>
+
+<form action="<?= $requestUrl ?>/user" method="POST">
+  <fieldset>
+  <ul class="generic-form">
+    <li>
+    <label for="firstName">Nom: </label>
+    <input type="text" name="firstName" id="firstName" required/>
+    </li>
+    <li>
+    <label for="firstName">Prénom:</label>
+    <input type="text" name="lastName" id="firstName" required/>
+    </li>
+    <li>
+    <label for="birthDay">Date de naissance:</label>
+
+    <select name="day" id="day">
+      <?php for($day = 1; $day <= 31; $day++): ?>
+      <option value="<?=$day?>"><?= $day ?></option>
+      <?php endfor; ?>
+    </select>
+    <select>
+      <option value="1">Janvier</option>
+      <option value="2">Février</option>
+      <option value="3">Mars</option>
+      <option value="4">Avril</option>
+      <option value="5">Mai</option>
+      <option value="6">Juin</option>
+      <option value="7">Juillet</option>
+      <option value="8">Aout</option>
+      <option value="9">Septembre</option>
+      <option value="10">Octobre</option>
+      <option value="11">Novembre</option>
+      <option value="12">Décembre</option>
+    </select>    
+    <select>
+        <?php for($year = 1920; $year <= Date('Y') - 18; $year++): ?>
+        <option value="<?=$year?>"> <?= $year ?> </option>
+        <?php endfor; ?>
+    </select>
+    </li>
+    <li>
+          <label for="address"> Adresse </label>
+          <textarea id="address" name="address" rows="5" cols="33" style="resize:none;" required></textarea>
+    </li>
+    <li>
+        <label for="city">Ville:</label>
+        <textarea id="address" name="address" rows="1" cols="33" style="resize:none;" required></textarea>
+    </li>
+    <li>
+      <label for="zipCode">Code Postal:</label>
+      <textarea id="zipCode" name="zipCode" rows="1" cols="8" style="resize:none;" required></textarea>
+    </li>
+    <li>
+      <label for="country">Pays:</label>
+      <textarea id="country" name="country" rows="1" cols="33" style="resize:none;" required></textarea>
+    </li>
+    <li>
+      <label for="phone">Téléphone</label>
+      <input  type="tel" id="phone" name="phone" required/>
+    </li> 
+  </ul>
+  </fieldset>
+ 
+  <fieldset>
+    <ul class="generic-form">
+       <li>
+         <label for="email">E-mail</label>
+         <input type="email" id="email" name="email" required />
+       </li>
+       <li>
+       <label for="password">Mot de passe</label>
+         <input type="password"  id="password" name="password" required />        
+       </li>
+     </ul>
+  </fieldset>
+  <input type="submit" value="Créer un compte" class="button button-primary" /> 
+  <a href="<?= $requestUrl?>" class="button button-cancel ">Annuler</a>
+  </form>  

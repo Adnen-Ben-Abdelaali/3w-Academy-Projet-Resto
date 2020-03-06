@@ -1,11 +1,5 @@
 <?php
   
-  /*
- 
-
-  */
-
-
   class MealModel
   {
 
