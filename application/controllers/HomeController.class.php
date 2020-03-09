@@ -9,7 +9,9 @@ class HomeController
 
 			$meals= $mealModel->listAll();
 
-			return ["meals" => $meals];
+			return ["meals" => $meals,
+							"flashBag" => new  FlashBag()
+							];
     }
 
     public function httpPostMethod(Http $http, array $formFields)

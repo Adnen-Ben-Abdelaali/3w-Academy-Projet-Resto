@@ -1,5 +1,10 @@
 <!-- Message de notification -->
+<aside class="notice">
+    <?php if($flashBag->hasMessages()): ?>
+        <?=  $flashBag->fetchMessage(); ?>
+    <?php endif; ?>
 
+</aside>
 <!-- Code HTML à écrire -->
 
 

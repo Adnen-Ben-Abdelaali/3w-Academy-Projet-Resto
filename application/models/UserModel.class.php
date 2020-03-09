@@ -24,26 +24,29 @@ class UserModel
 
         }
 
-        $sql ="INSERT INTO user (LastName,FirstName,Email,Password,Adress,Birthdate,City,
+        $sql ="INSERT INTO user (LastName,FirstName,Email,Password,Address,Birthdate,City,
         Country,ZipCode,Phone,CreationTimestamp)
-        VALUES(?,?,?,?,?,?,?,?,?,?,NOW() )";
+        VALUES(?,?,?,?,?,?,?,?,?,?,NOW())";
         
         $hashed_password = password_hash($password,PASSWORD_BCRYPT);
-       
-       
+           
         $baseUser->executeSql($sql,
         [$lastName,
         $firstName,
         $email,
         $hashed_password,
-        $birthDate,
         $address,
+        $birthDate,
         $city,
         $country,
         $zipCode,
         $phone]
     );
 
+        $flashBag = new FlashBag();
+        $flashBag->add("votre compte a été crée avec succès");
+       
+        
 
     }
 
