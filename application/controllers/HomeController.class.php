@@ -10,7 +10,7 @@ class HomeController
 			$meals= $mealModel->listAll();
 
 			return ["meals" => $meals,
-							"flashBag" => new  FlashBag()
+							"flashBag" => new FlashBag()
 							];
     }
 

@@ -1,0 +1,20 @@
+
+<aside class="error-message">
+  <p><?=$errorMessage?></p>
+</aside>
+<form method="post" action="<?= $requestUrl ?>/user/login">
+<fieldset>
+    <ul class="generic-form">
+       <li>
+         <label for="email">E-mail</label>
+         <input type="email" id="email" name="email" required />
+       </li>
+       <li>
+       <label for="password">Mot de passe</label>
+         <input type="password"  id="password" name="password" required />        
+       </li>
+     </ul>
+  </fieldset>
+  <input type="submit" value="Se connecter" class="button button-primary" /> 
+  <a href="<?= $requestUrl?>" class="button button-cancel ">Annuler</a>
+  </form>  

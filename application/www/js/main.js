@@ -11,3 +11,9 @@
 // CODE PRINCIPAL                                                                      //
 /////////////////////////////////////////////////////////////////////////////////////////
 
+$(function() {
+
+  //affihcage de la notification : disparition après 3 secondes
+
+  $("#notice").delay(3000).fadeOut("slow");
+});
