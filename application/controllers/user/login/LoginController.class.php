@@ -28,9 +28,23 @@
 
       try 
       {
-        $model = new UserModel();
-        $user = $model->findWithEmailPassword($formFields["email"],$formFields["password"]);
-        
+        $userModel = new UserModel();
+            $user      = $userModel->findWithEmailPassword
+            (
+                $formFields['email'],
+                $formFields['password']
+            );            // Construction de la session utilisateur.
+            $userSession = new UserSession();
+            $userSession->create
+            (
+                $user['Id'],
+                $user['FirstName'],
+                $user['LastName'],
+                $user['Email'],
+                $user['Admin']
+            );
+        //$userSession = new UserSession();
+        //$userSession->create();
         /*
         print_r($user);
         die();

@@ -89,6 +89,7 @@ class UserModel
     public function updateLoginTimestamp($userId)
     {
       //met à jour la date de la dernière connexion d'un utilisateur
+      
     }
   
  

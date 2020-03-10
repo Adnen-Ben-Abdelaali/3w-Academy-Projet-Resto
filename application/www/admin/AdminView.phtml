@@ -1,0 +1,37 @@
+
+
+<fieldset>
+  <table border="2" class="generic-table caption">
+    <caption>Historique des comandes</caption>
+    <thead>
+      <tr>
+        <th>Num Com</th>
+        <th>Num User</th>
+        <th>Date Créa</th>
+        <th>Date Succ</th>
+        <th>tva</th>
+        <th>prix tva</th>
+        <th>total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php for($order = 0; $order < count($orders); $order++):?>
+        <tr>
+        <?php foreach($orders[$order] as $key => $value): ?>
+      
+          <?php if( $key == ("TotalAmount" || "TaxAmount" )): ?>
+          
+          <td> <?= $value ?> €</td>
+          
+          <?php elseif($key == "TaxRate" ): ?>
+
+          <td> <?= $value ?> %</td>
+
+          <?php endif; ?>
+          <td> <?= $value ?> </td>
+          <?php endforeach; ?>
+          </tr>
+      <?php endfor;?>
+    </tbody>
+  </table>
+</fieldset>
