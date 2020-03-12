@@ -1,11 +1,14 @@
 <?php
 
-  class LoginForm extends Form 
-  {
 
+class LoginForm extends Form
+{
     public function build()
     {
-      $this->addFormField("email");
+        $this->addFormField('email');
+
 
     }
-  }
+
+}
+?>

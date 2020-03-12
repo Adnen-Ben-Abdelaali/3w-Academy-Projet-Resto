@@ -30,14 +30,15 @@ class Database
 		return $this->pdo->lastInsertId();
 	}
 
-    public function query($sql, array $criteria = array())
-    {
+	public function query($sql, array $criteria = array())
+	{
         $query = $this->pdo->prepare($sql);
 
         $query->execute($criteria);
 
-        return $query->fetchAll(PDO::FETCH_ASSOC);
-    }
+		return $query->fetchAll(PDO::FETCH_ASSOC);
+	}
+	
 
     public function queryOne($sql, array $criteria = array())
     {

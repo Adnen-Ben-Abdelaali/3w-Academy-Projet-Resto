@@ -28,9 +28,11 @@ abstract class Form
         foreach($formFields as $name => $value)
         {
             if(array_key_exists($name, $this->formFields) == true)
+
             {
                 $this->formFields[$name] = $value;
             }
+            
         }
     }
 

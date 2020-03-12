@@ -1,23 +1,21 @@
 <?php
 
-
-
- class UserForm extends Form
+class UserForm extends Form
 {
-   
-     public function build(){
-   
-     $this->addFormField("firstName");
-     $this->addFormField("lastName");
-     $this->addFormField("address");
-     $this->addFormField("city");
-     $this->addFormField("zipCode");
-     $this->addFormField("country");
-     $this->addFormField("zipCode");
-     $this->addFormField("country");
-     $this->addFormField("phone");
-     $this->addFormField("email");
-     }
+
+    public function build()
+    {
+        $this->addFormField('lastName');
+        $this->addFormField('firstName');
+        $this->addFormField('address');
+        $this->addFormField('city');
+        $this->addFormField('zipCode');
+        $this->addFormField('country');
+        $this->addFormField('phone');
+        $this->addFormField('email');
+        
+    }
+
+
 
 }
-

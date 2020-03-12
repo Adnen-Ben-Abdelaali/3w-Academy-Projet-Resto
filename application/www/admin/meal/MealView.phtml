@@ -1,0 +1,62 @@
+<h2>Ajout d'un Produit Alimentaire au Catalogue</h2>
+<form class="generic-form" action="<?=$requestUrl?>/admin/meal" method="POST" enctype="multipart/form-data" >
+    <fieldset>
+    <legend> Caracteristique</legend>
+    <ul>
+    <li>
+    <label for="name">Nom:</label>
+    <input id="nom" name="Name" type="text" >
+    </li>
+    <li>
+     <label for="description">description:</label>
+     <textarea id="adressDescription" name="Description" rows="4" ></textarea>
+    </li>
+    <li>
+    <label for="photo">Photo:</label>
+   
+    <input type="file" name="Photo" />
+    </li>
+    </ul>
+    <p>Merci de rennomer le fichier avant de l'envoyer :</p>
+    </fieldset>
+
+    <fieldset>
+    <legend>Approvision : </legend>
+    <ul>
+    <li>
+    <label for="Stock initial">Stock initial :</label>
+    <input class="quantity" name="QuantityInStock" type="text" >
+    </li>
+    <li>
+    <label for="Prix d'achat">Prix d'achat:</label>
+    <input class="money" name="BuyPrice" type="text" ><em >€</em>
+    </li>
+    <li>
+    <label for="Prix de vente">Prix de vente:</label>
+    <input class="money" name="SalePrice" type="text" ><em >€</em>
+    </li>
+    </ul>
+    </fieldset>
+    <fieldset>
+    <legend>Liste des Articles : </legend>
+    <table class="generic-table">
+    <thead>
+    <tr>
+    <th>repas</th>
+    <th>prix</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach($meals as $meal): ?>
+     <tr>
+      <td><?= $meal['Name'] ?></td>
+      <td><?= $meal['SalePrice'] ?></td>
+    </tr>
+
+  <?php endforeach ;?>
+   </tbody>          
+    </table>
+    </fieldset>
+    <input class=" button button-primary" type="submit" value="Ajouter">
+        <button class=" button button-cancel" ><a href="<?=$requestUrl?>">Annuler</a></button>
+</form>

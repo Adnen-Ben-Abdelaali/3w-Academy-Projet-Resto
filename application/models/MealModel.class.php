@@ -1,17 +1,42 @@
 <?php
-  
-  class MealModel
-  {
 
-    public function listAll()
+class MealModel
+{
+    public function getAllMeal()
     {
-      $database = new Database();
+        
+        $db= new Database();
+        $sql='SELECT * FROM `meal`';
 
-      $sql = "SELECT Photo, Name, Description, SalePrice FROM meal"; //requete sql
-    
-      return  $database->query($sql);
-    
+        return $meals= $db->query($sql);
+    }
+  
+    public function creatMeal( $name,$photo,$description,$QuantityInStock,$BuyPrice,$salePrice)
+    {
+       
+            $db = new database();
+            $sql = ' INSERT INTO `meal` (
+            `Name`,
+            `Photo`,
+            `Description`,
+            `QuantityInStock`,
+            `BuyPrice`,
+            `SalePrice`) 
+                VALUES (?,?,?,?,?,?)';
+                
+        $db->executeSql($sql,array( 
+        $name,
+        $photo,
+        $description,
+        $QuantityInStock,
+        $BuyPrice,
+        $salePrice 
+    ));
+        $flashbag= new FlashBag();
+        $flashbag->add(' repat ajouter !!')  ;
 
+       
+        
     }
 
-  }
+}

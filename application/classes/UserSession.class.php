@@ -13,104 +13,90 @@ class UserSession
 
     public function create($userId, $firstName, $lastName, $email, $admin)
     {
-        // Construction de la session utilisateur.
-        
-        $_SESSION["user"] = [
-            "id" => $userId,
-            "firstName" => $firstName,
-            "lastName" => $lastName,
-            "email" =>  $email,
-            "admin" =>  $admin
-        ];
+       $_SESSION['user'] = [
+        'Id' => $userId,
+       'FirstName'=>$firstName,
+       'LastName'=>$lastName,
+       'Email'=>$email,
+       'Admin'=>$admin
+       
+    ];
+ 
     }
 
     public function destroy()
     {
-        // Destruction de l'ensemble de la session.
-
-        if($this->isAuthenticated())
-        {
-
-            session_destroy();
-        }
+        session_destroy();
    
     }
 
     public function getEmail()
     {
-
-        if( $this->isAuthenticated() ) 
+        if($this->isAuthenticated()==true)
         {
+           
+        return $_SESSION['user']['Email'];
+        }
         
-            return $_SESSION["user"]["email"]; 
-        } 
-
-        return "ddddd";
     }
     
     public function getAdmin()
     {
-
-        if($this->isAuthenticated())
+        if($this->isAuthenticated()==true)
         {
-
-            return $_SESSION["user"]["admin"];
+       
+        return $_SESSION['user']['Admin'];
         }
+        
     }
 
 
     public function getFirstName() 
-    {
-        
-        if($this->isAuthenticated())
+    {   //echo 'khaled';
+        if($this->isAuthenticated()==true)
         {
-
-            return $_SESSION["user"]["firstName"];
+            
+        return $_SESSION['user']['FirstName'];
         }
     }
 
 
     public function getFullName() 
     {
-        
-        if($this->isAuthenticated())
+        if($this->isAuthenticated()==true)
         {
-
-            return $_SESSION["user"]["firstName"] ." " .$_SESSION["user"]["lastName"];
+        
+        return $_SESSION['user']['lastName'].$_SESSION['user']['FirstName'];
         }
     }
 
 
     public function getLastName() 
-    {
-        if($this->isAuthenticated())
-        {
 
-            return $_SESSION["user"]["lastName"];
+    {   if($this->isAuthenticated()==true)
+        {
+        
+        return $_SESSION['user']['lastName'];
         }
     }
 
 
     public function getUserId() 
-    {
-        
-        if($this->isAuthenticated())
+    {   if($this->isAuthenticated()==true)
         {
-
-            return $_SESSION["user"]["id"];
+        
+        return $_SESSION['user']['Id'];
         }
     }
 
 
     public function isAuthenticated()
     {
-        
-        if( isset($_SESSION["user"]) ) 
+        if (array_key_exists('user', $_SESSION) == true)
         {
-
             return true;
-        }
 
-        return false;
+        }
+        else return false;
     }
 }

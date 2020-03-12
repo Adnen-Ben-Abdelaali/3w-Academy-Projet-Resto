@@ -29,40 +29,43 @@
             <img src="<?= $wwwUrl ?>/images/logo.gif" height="63" width="57" alt="3WA Restaurant">Restaurant - Made In America !
         </a>
     </h1>
+
+
 </header>
 
 <!-- Interface utilisateur -->
 <nav class="user-interface">
+<?php if( $userSession->isAuthenticated() == false ){?>
+
     <ul class="link-list">
-        <!-- Code HTML/PHP à écrire -->
-    <?php  if( !($userSession->isAuthenticated()) ): ?>
-
-
-        <li> <a class="button button-primary" href="<?= $requestUrl ?>/user"> Créer un compte</a> </li>
-        <li class="layout-right"> <a class="button button-primary" href="<?= $requestUrl ?>/user/login">Connexion</a> <li>
-    
-
-    
-    <?php   elseif( ($userSession->isAuthenticated()) && empty($userSession->getAdmin()) ): ?>
-        
-        <li> <a class="button button-primary" href="<?= $requestUrl ?>/booking"> Réserver</a> </li>
-        <li> <a class="button button-primary" href="<?= $requestUrl ?>/#">Commander</a> <li>
-        <li class="layout-right"> <a class="button button-primary" href="<?= $requestUrl ?>/user/logout">Déconnexion</a> <li>
-
-    <?php  elseif( ($userSession->isAuthenticated()) && !empty($userSession->getAdmin()) ): ?>
-      
-        <li> <a class="button button-primary" href="<?= $requestUrl ?>/admin"> Admin</a> </li>
-        <li> <a class="button button-primary" href="<?= $requestUrl ?>/#"> Meal</a> </li>
-        <li> <a class="button button-primary" href="<?= $requestUrl ?>/booking"> Réserver</a> </li>
-        <li> <a class="button button-primary" href="<?= $requestUrl ?>/#">Commander</a> <li>
-        <li class="layout-right"> <a class="button button-primary" href="<?= $requestUrl ?>/user/logout">Déconnexion</a> <li>
-        
-
-    <?php endif; ?>
-
-    <?php ?>
-    
+        <li><button class="button button-primary "> <a  href="<?=$requestUrl?>/user">Créer Compte</a></button></li>
+        <li ><button class="layout-right button button-primary" ><a href="<?=$requestUrl?>/user/login">Connecter</a></button></li>
     </ul>
+
+<?php }else{?>
+    <ul class="link-list">
+<?php if ($userSession->getAdmin() == 1) { ?>
+    
+        <li><button class="button button-primary "> <a  href="<?=$requestUrl?>/admin">Admin</a></button></li>
+        <li ><button class=" button button-primary" ><a href="<?=$requestUrl?>/admin/meal">Meal</a></button></li>
+        
+   
+<?php }?>
+   
+        
+        
+
+    
+
+<li ><button class=" button button-primary" ><a href="<?=$requestUrl?>/booking">Reserver</a></button></li>
+
+        <li ><button class=" button button-primary" ><a href="<?=$requestUrl?>/user/login">Commander</a></button></li>
+        <em class="no-left-label"><?= 'bonjour '.$userSession->getFirstName();?></em>
+        
+        <li ><button class="layout-right button button-primary" ><a href="<?=$requestUrl?>/user/logout">Deconnecter</a></button></li>
+    </ul>
+<?php } ?>
+ 
 </nav>
 
 <main>

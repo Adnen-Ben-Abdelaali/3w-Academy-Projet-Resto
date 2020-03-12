@@ -1,35 +1,31 @@
 <!-- Message de notification -->
 
-    <?php if($flashBag->hasMessages()): ?>
-    <aside class="notice" id="notice">
-        <?=  $flashBag->fetchMessage(); ?>
+
+<?php if($flashBag->hasMessages()):?>
+    <aside id="notice" class="notice">
+        <p><?=$flashBag->fetchMessage()?></p>
     </aside>
-    <?php endif; ?>
-
-    <?php
-
-        $userSession->getEmail();
-     
-        
-    ?>
+<?php endif;?>
 <!-- Code HTML à écrire -->
 
 
 <!-- Liste des aliments -->
 <table class="generic-table meal-list">
     <caption>Carte du restaurant</caption>
+
+    
+            
     <tbody>
-        <!-- Code HTML à écrire -->
-        <?php foreach($meals as $key => $value): ?>
-        <tr>
-            <td> <img alt="imageX" src="<?= $wwwUrl. '/images/meals/' .$value['Photo'] ?>"/></td>        
-            <td> <strong> <?= $value["Name"]  ?> </strong> </td>
-            <td> <?= $value["Description"] ?>  </td>
-            <td> <strong> <?= $value["SalePrice"] ."$"?> </strong></td>
-        </tr>
-    <?php endforeach; ?>
+    <?php foreach($meals as $meal): ?>
+
+                    <tr>
+                    <td><img src="<?=$wwwUrl?>/images/meals/<?=$meal['Photo']?>" alt=""> </td>
+                        <td><strong><?= $meal['Name'] ?> </strong><br>  <br> <small><?= $meal['Description'] ?></small> </td>
+
+                    <td><strong><?= $meal['SalePrice'] ?></strong> $</td>
+                    </tr>
+
+    <?php endforeach ;?>
+   
     </tbody>
 </table>
-
-
-<!--   Photo, Name, Description, SalePrice -->

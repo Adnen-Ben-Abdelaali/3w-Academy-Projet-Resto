@@ -1,20 +1,20 @@
 
-<aside class="error-message">
-  <p><?=$errorMessage?></p>
-</aside>
-<form method="post" action="<?= $requestUrl ?>/user/login">
-<fieldset>
-    <ul class="generic-form">
-       <li>
-         <label for="email">E-mail</label>
-         <input type="email" id="email" name="email" value="<?= $email ?>" required />
-       </li>
-       <li>
-       <label for="password">Mot de passe</label>
-         <input type="password"  id="password" name="password" required />        
-       </li>
-     </ul>
-  </fieldset>
-  <input type="submit" value="Se connecter" class="button button-primary" /> 
-  <a href="<?= $requestUrl?>" class="button button-cancel ">Annuler</a>
-  </form>  
+
+<form data-validation = true class="generic-form" action="<?= $requestUrl ?>/user/login" method="POST">
+<aside class="error-message hidden">
+        <h3><i class="fa fa-warning"></i> Il y a
+        <em id="total-error-count">1</em> erreur(s) dans le formulaire !</h3>
+        <p><?= $errorMessage ?></p>
+    </aside>
+<ul>
+            <li>
+            <label for="name">Email:</label>
+            <input data-required = true data-name = 'Email' id="telephone" name="email" type="text" >
+             </li>
+            <li>
+            <label for="name">Mot de passe:</label>
+            <input  data-required = true data-name = 'mot de passe'  id="telephone" name="password" type="password" >
+            </li>
+            <input   class=" button button-primary " type="submit" value="Se Connecter" > <a class=" button button-cancel" href="<?= $requestUrl ?>">Annuler</a>
+</ul>            
+</form>

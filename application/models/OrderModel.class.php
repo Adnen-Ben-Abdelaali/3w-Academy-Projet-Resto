@@ -1,18 +1,14 @@
 <?php
 
-  class OrderModel
-  {
-    
-    public function getOrders()
+class OrderModel
+{
+    public function getAllOrder()
     {
-      $dataBase = new Database();
-  
-      return $dataBase->query('SELECT * FROM `order`');
+        $db= new Database();
+        $sql='SELECT * FROM `order`';
+
+        return $orders = $db->query($sql);
     }
 
-
-
-
-
-
-  }
+    
+}

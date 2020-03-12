@@ -1,19 +1,82 @@
-
-<h1>Réservation d'une table</h1>
-
-<form>
-  <label>Date de réservation : </label>
-  <select name="">
-    <?php ?>
-    <option value=""></option>
-    <?php ?>
-  </select>
-  <select name="">
-    <option>
-  </select>
-  <select name="">
-    <?php ?>
-    <option></option>
-    <?php ?>
-  </select>
+<h2> Réservation d'une Table</h2>
+<form class="generic-form" action="<?=$requestUrl?>/booking" method ="POST">
+    <fieldset>
+        <legend> Information </legend>
+        <ul>
+        <li>
+                            <label for="day" >Date de Reservation :</label>
+                            <select id="day" name="BookingDay">
+                                <?php for($day = 1; $day <= 31; $day++): ?>
+                                    <option value="<?= $day ?>"><?= $day ?></option>
+                                <?php endfor ?>
+                            </select>
+                            <span>/</span>
+                            <select name="BookingMonth" >
+                                <option value="1">Janvier</option>
+                                <option value="2">Février</option>
+                                <option value="3">Mars</option>
+                                <option value="4">Avril</option>
+                                <option value="5">Mai</option>
+                                <option value="6">Juin</option>
+                                <option value="7">Juillet</option>
+                                <option value="8">Août</option>
+                                <option value="9">Septembre</option>
+                                <option value="10">Octobre</option>
+                                <option value="11">Novembre</option>
+                                <option value="12">Décembre</option>
+                            </select>
+                            <span>/</span>
+                            <select name="BookingYear" >
+                                <?php for($year = 2020; $year < date('Y') +10; $year++): ?>
+                                    <option value="<?= $year ?>"><?= $year ?></option>
+                                <?php endfor ?>
+                            </select>
+                            à
+                            <select name="BookingTime">
+                                <option value="11:00">11.00 AM</option>
+                                <option value="11:30">11.30 AM</option>
+                                <option value="12:00">12.00 PM</option>
+                                <option value="12:30">12.30 PM</option>
+                                <option value="13:00">01.00 PM</option>
+                                <option value="13:30">01.30 PM</option>
+                                <option value="14:00">02.00 PM</option>
+                                <option value="14:30">02.30 PM</option>
+                                <option value="15:00">03.00 PM</option>
+                                <option value="15:30">03.30 PM</option>
+                                <option value="16:00">04.00 PM</option>
+                                <option value="16:30">04.30 PM</option>
+                                <option value="17:00">05.00 PM</option>
+                                <option value="17:30">05.30 PM</option>
+                                <option value="18:00">06.00 PM</option>
+                                <option value="18:30">06.30 PM</option>
+                                <option value="19:00" selected="">07.00 PM</option>
+                                <option value="19:30">07.30 PM</option>
+                                <option value="20:00">08.00 PM</option>
+                                <option value="20:30">08.30 PM</option>
+                                <option value="21:00">09.00 PM</option>
+                                <option value="21:30">09.30 PM</option>
+                                <option value="22:00">10.00 PM</option>
+                                <option value="22:30">10.30 PM</option>
+                                <option value="23:00">11.00 PM</option>
+                                <option value="23:30">11.30 PM</option>
+                            
+                            </select>
+        </li>
+        <li>
+         <label for="">Nombre de couvert ;</label>
+         <select name="NumberOfSeats" id="">
+         <option value="1">1</option>
+         <option value="2">2</option>
+         <option value="3">3</option>
+         <option value="4">4</option>
+         <option value="5">5</option>
+         <option value="6">6</option>
+         <option value="7">7</option>
+         </select>
+        </li>
+        
+        </ul>
+        <input class=" button button-primary" type="submit" value="Réserver">
+        <button class=" button button-cancel" ><a href="<?=$requestUrl?>">Annuler</a></button>
+    </fieldset>
 </form>
