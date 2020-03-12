@@ -1,20 +1,27 @@
+<aside class="error-message hidden">
+  <p></p>
+</aside>
+
+
+
+
 <h2>Ajout d'un Produit Alimentaire au Catalogue</h2>
-<form class="generic-form" action="<?=$requestUrl?>/admin/meal" method="POST" enctype="multipart/form-data" >
+<form class="generic-form" action="<?=$requestUrl?>/admin/meal" method="POST" enctype="multipart/form-data" data-validation >
     <fieldset>
     <legend> Caracteristique</legend>
     <ul>
     <li>
     <label for="name">Nom:</label>
-    <input id="nom" name="Name" type="text" >
+    <input id="nom" name="Name" type="text" data-required />
     </li>
     <li>
      <label for="description">description:</label>
-     <textarea id="adressDescription" name="Description" rows="4" ></textarea>
+     <textarea id="adressDescription" name="Description" rows="4"  data-required></textarea>
     </li>
     <li>
     <label for="photo">Photo:</label>
    
-    <input type="file" name="Photo" />
+    <input type="file" name="Photo"  data-required />
     </li>
     </ul>
     <p>Merci de rennomer le fichier avant de l'envoyer :</p>
@@ -25,15 +32,15 @@
     <ul>
     <li>
     <label for="Stock initial">Stock initial :</label>
-    <input class="quantity" name="QuantityInStock" type="text" >
+    <input class="quantity" name="QuantityInStock" type="text"  data-required data-type="positiveInteger" />
     </li>
     <li>
     <label for="Prix d'achat">Prix d'achat:</label>
-    <input class="money" name="BuyPrice" type="text" ><em >€</em>
+    <input class="money" name="BuyPrice" type="text" data-required data-type="positiveNumber" /><em >€</em>
     </li>
     <li>
     <label for="Prix de vente">Prix de vente:</label>
-    <input class="money" name="SalePrice" type="text" ><em >€</em>
+    <input class="money" name="SalePrice" type="text"  data-required data-type="positiveNumber" /><em >€</em>
     </li>
     </ul>
     </fieldset>
@@ -51,12 +58,12 @@
      <tr>
       <td><?= $meal['Name'] ?></td>
       <td><?= $meal['SalePrice'] ?></td>
-    </tr>
+      </tr>
 
-  <?php endforeach ;?>
-   </tbody>          
+    <?php endforeach ;?>
+    </tbody>          
     </table>
     </fieldset>
-    <input class=" button button-primary" type="submit" value="Ajouter">
+    <input class=" button button-primary" type="submit" value="Ajouter" />
         <button class=" button button-cancel" ><a href="<?=$requestUrl?>">Annuler</a></button>
 </form>

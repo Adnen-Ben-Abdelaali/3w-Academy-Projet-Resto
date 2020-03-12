@@ -9,12 +9,12 @@
 <ul>
             <li>
             <label for="name">Email:</label>
-            <input data-required = true data-name = 'Email' id="telephone" name="email" type="text" >
+            <input data-required = true data-name = 'email' id="telephone" name="email" type="text" >
              </li>
             <li>
             <label for="name">Mot de passe:</label>
-            <input  data-required = true data-name = 'mot de passe'  id="telephone" name="password" type="password" >
+            <input data-required = true data-name = 'motDePasse'  data-length='9' id="telephone" name="password" type="password" >
             </li>
-            <input   class=" button button-primary " type="submit" value="Se Connecter" > <a class=" button button-cancel" href="<?= $requestUrl ?>">Annuler</a>
+            <input class=" button button-primary " type="submit" value="Se Connecter" > <a class=" button button-cancel" href="<?= $requestUrl ?>">Annuler</a>
 </ul>            
 </form>
