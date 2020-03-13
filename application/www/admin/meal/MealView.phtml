@@ -1,12 +1,16 @@
-<aside class="error-message hidden">
-  <p></p>
-</aside>
+
 
 
 
 
 <h2>Ajout d'un Produit Alimentaire au Catalogue</h2>
 <form class="generic-form" action="<?=$requestUrl?>/admin/meal" method="POST" enctype="multipart/form-data" data-validation >
+  <aside class="error-message hidden">
+        <h3><i class="fa fa-warning"></i> Il y a
+        <em id="total-error-count">1</em> erreur(s) dans le formulaire !</h3>
+        <p></p>
+    </aside>
+
     <fieldset>
     <legend> Caracteristique</legend>
     <ul>
@@ -67,3 +71,4 @@
     <input class=" button button-primary" type="submit" value="Ajouter" />
         <button class=" button button-cancel" ><a href="<?=$requestUrl?>">Annuler</a></button>
 </form>
+<script src="<?= $wwwUrl ?>/js/classes/FormValidator.class.js"></script>

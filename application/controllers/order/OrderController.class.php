@@ -1,15 +1,18 @@
 <?php
 
-  class PaymentModel 
+  class OrderController
   {
-    
     public function httpGetMethod(Http $http, array $queryFields)
-    {   
+
       // $queryFields : équivalent au tableau $_GET
 
-        
+    {   
+      $mealList = new MealModel();
 
-        return [];
+      var_dump($mealList->getAllMeal());
+
+      return  [ "meals" => $mealList->getAllMeal() ];
+
     }
 
     public function httpPostMethod(Http $http, array $formFields)
@@ -19,6 +22,7 @@
 
         return [];
     }
+  
+}
 
 
-  }

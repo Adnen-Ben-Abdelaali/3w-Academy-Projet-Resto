@@ -1,6 +1,6 @@
 <?php
 
-  class PaymentCOntroler 
+  class PaymentControler 
   {
     public function httpGetMethod(Http $http, array $queryFields)
 
